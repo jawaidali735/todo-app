@@ -1,0 +1,22 @@
+[project]
+name = "todo-app"
+version = "0.1.0"
+description = "A simple command-line todo application that stores tasks in memory"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+todo = "todo_app.main:main"
+todo-interactive = "todo_app.interactive_main:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[project.urls]
+Homepage = "https://github.com/jawaidali735/todo-app"
+Repository = "https://github.com/jawaidali735/todo-app"

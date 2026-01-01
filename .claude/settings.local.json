@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \"Todo In-Memory Console Application \n\nTarget audience:\nIndividual users who want to manage simple personal tasks through a command-line interface.\n\nFocus:\nBasic task management functionality with clear, predictable behavior and minimal complexity.\n\nTech stack:\n- Programming language: Python \\(3.13 or later\\)\n- Package management: uv\n- Runtime environment: Local command-line execution\n- Standard library only \\(no third-party dependencies\\)\n\nSuccess criteria:\n- User can create tasks with a title and optional description\n- User can view a list of all tasks with their completion status\n- User can update an existing task''s title or description\n- User can delete a task using its identifier\n- User can mark tasks as complete or incomplete\n- All actions provide clear confirmation or error messages\n\nConstraints:\n- Tasks exist only during program execution\n- All task data is stored in memory\n- Interaction is strictly text-based via the command line\n- Task identifiers are numeric and unique within a session\n- Input validation\" -Json -Number 1 -ShortName \"todo-app\")",
+      "Bash(python todo_app/main.py add \"Buy groceries\" \"Milk, bread, eggs\")",
+      "Bash(python todo_app/main.py add \"Walk the dog\")",
+      "Bash(python test_functionality.py)",
+      "Bash(python todo_app/main.py complete 1)",
+      "Bash(python todo_app/main.py)"
+    ]
+  }
+}

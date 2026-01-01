@@ -1,55 +1,62 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT:
+Version change: N/A (initial creation) → 1.0.0
+Added sections: Core Principles (6), Key Standards, Constraints, Success Criteria, Governance
+Templates requiring updates: N/A (initial creation)
+Follow-up TODOs: None
+-->
+# Todo Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Simplicity Over Complexity
+System design must prioritize simplicity over complexity. All architectural and implementation decisions should favor straightforward, understandable solutions that minimize cognitive load for developers and users.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Deterministic and Predictable Behavior
+All application operations must produce consistent, predictable results given the same inputs and state. No random or time-dependent behavior should affect core functionality without explicit user control.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Clear Separation Between Logic and User Interaction
+Business logic must be cleanly separated from user interface concerns. The core todo management functionality should be independently testable from the command-line interface layer.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Reliability Under Invalid Input
+The application must handle invalid or unexpected user input gracefully without crashing. Input validation and error recovery must be built into all user-facing operations.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Readability and Maintainability
+Code structure must prioritize readability and maintainability through clear naming, appropriate comments, and logical organization. Future developers should be able to quickly understand and modify the codebase.
 
-### [PRINCIPLE_6_NAME]
+### Memory-Only Data Storage
+All task data must be stored in memory only with no persistent storage mechanisms. This constraint ensures simplicity but requires clear communication to users about data volatility.
 
+## Key Standards
 
-[PRINCIPLE__DESCRIPTION]
+- All tasks must have a unique numeric identifier
+- Task title is mandatory; description is optional
+- Task state must include completion status
+- All operations must provide clear user feedback
+- Errors must be handled gracefully without crashing the application
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Data must be stored in memory only
+- No persistent storage of any kind is allowed
+- Interaction must be strictly command-line based
+- Features are limited to:
+  - Add task
+  - View task list
+  - Update task
+  - Delete task
+  - Mark task as complete or incomplete
+- No external services, APIs, or background processes
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Success Criteria
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Users can add, view, update, delete, and complete tasks successfully
+- Application provides clear feedback for all operations
+- Error conditions are handled gracefully without crashes
+- Memory-only storage constraint is maintained
+- Command-line interface is intuitive and responsive
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution establishes the fundamental principles and constraints that govern all development decisions for the todo application. All code changes, feature additions, and architectural decisions must align with these principles. Any proposed changes that conflict with these principles require explicit amendment to the constitution with clear justification.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-01 | **Last Amended**: 2026-01-01
