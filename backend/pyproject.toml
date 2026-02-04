@@ -1,0 +1,66 @@
+[project]
+name = "todo-backend"
+version = "0.1.0"
+description = "Backend service for the todo application with JWT authentication and PostgreSQL persistence"
+authors = [
+    {name = "Developer", email = "dev@example.com"}
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "sqlmodel>=0.0.22",
+    "pydantic>=2.10.3",
+    "pyjwt>=2.10.1",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.20",
+    "uvicorn[standard]>=0.35.0",
+    "psycopg2-binary>=2.9.5",
+    "python-dotenv>=1.0.1",
+    "alembic>=1.14.0"
+]
+requires-python = ">=3.11"
+
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.0",
+    "httpx>=0.28.1"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["app"]
+omit = [
+    "*/tests/*",
+    "*/conftest.py",
+    "app/main.py",  # Main entry point typically has minimal logic
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+precision = 2
+show_missing = true
+
+[tool.coverage.html]
+directory = "htmlcov"
