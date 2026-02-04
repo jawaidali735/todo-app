@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    appDir: true,
+  },
+  // Specify the src directory as the base
+  srcDir: 'src',
 };
 
 export default nextConfig;
